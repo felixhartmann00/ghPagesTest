@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - staging
+      - master
 
 jobs:
   build-and-deploy-staging:
