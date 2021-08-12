@@ -24,5 +24,3 @@ jobs:
         with:
           branch: gh-pages
           folder: ./build
-          target-folder: ./live
-          
