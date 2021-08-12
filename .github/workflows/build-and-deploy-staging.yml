@@ -5,7 +5,7 @@ on:
       - staging
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-staging:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,7 +18,7 @@ jobs:
           npm install
           npm run build
 
-      - name: Deploy
+      - name: Deploy to Staging
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: gh-pages
