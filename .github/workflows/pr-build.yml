@@ -9,11 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      env:
-        BRANCH: $github.ref
       - name: Checkout
         uses: actions/checkout@v2.3.1
-        if: ${{ $BRANCH == 'refs/heads/staging' }}
+        if: ${{ github.ref == 'refs/heads/staging' }}
         with:
           ref: staging
             
