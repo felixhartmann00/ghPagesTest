@@ -5,14 +5,14 @@ on:
       - master
       - staging
 
-env:
-  BRANCH: $github.ref
-  run: echo "$Branch"
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      env:
+        BRANCH: $github.ref
+        run: echo "$Branch"
+      
       - name: Checkout
         uses: actions/checkout@v2.3.1
         if: ${{ $BRANCH == 'refs/heads/staging' }}
