@@ -1,7 +1,8 @@
 name: Build and Deploy Staging
 on:
   workflow_run:
-    workflows: Build and Deploy
+    workflows: ["Build and Deploy"]
+    branches: [master]
     types: completed
   push:
     branches:
