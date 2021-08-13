@@ -28,5 +28,5 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
-          name: build-artifact-${{ github.head_ref && github.ref }}
+          name: build-artifact-${{ github.head_ref_github.ref }}
           path: ./build
