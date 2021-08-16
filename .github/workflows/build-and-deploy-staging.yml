@@ -15,14 +15,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.1
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v2
-        id: download
-        with: 
-          name: build-artifact-staging
+      - name: Change package.json for staging
+        if: ${{ github.base_ref == 'staging' }}
+        run: sed -i 's/ghPagesTest\//ghPagesTest\/staging\//g' package.json
 
-      - name: 'Echo download path'
-        run: echo ${{steps.download.outputs.download-path}}
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
 
       - name: Deploy to Staging
         uses: JamesIves/github-pages-deploy-action@4.1.1
