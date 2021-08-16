@@ -18,7 +18,7 @@ jobs:
           ref: staging
 
       - name: Change package.json for staging
-        if: ${{ github.base_ref == 'staging' }}
+        if: ${{ github.ref == 'staging' }}
         run: sed -i 's/ghPagesTest\//ghPagesTest\/staging\//g' package.json
 
       - name: Install and Build
